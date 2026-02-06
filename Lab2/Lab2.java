@@ -17,8 +17,8 @@ class Main {
     // No code should be added to the main method. All of your code will go into the
     // methods in Lab2.
     lab.linkedList();
-    // lab.queue();
-    // lab.stack();
+    lab.queue();
+    lab.stack();
   }
 }
 
@@ -42,7 +42,7 @@ class Lab2 {
     // 5. Iterate over progLanguages and use println() to output each element. You
     // must create an Iterator<string> and use hasNext(), and next() similar to the
     // example in our book.
-    Iterator<String> it = new progLanguages.Iterator();
+    Iterator<String> it = progLanguages.iterator();
 
     while (it.hasNext()) {
       String langN = it.next();
@@ -53,42 +53,72 @@ class Lab2 {
 
   public void queue() {
     // 6. Create a Queue<String> called q
+    Queue<String> q = new LinkedList<>();
 
     // 7. Add 5 first names to q.
+    q.offer("Mariana");
+    q.offer("John");
+    q.offer("Dominic");
+    q.offer("Peter");
+    q.offer("Isabella");
 
     // 8. Uncomment the following line
-    // System.out.println("Elements of queue: " + q);
+    System.out.println("Elements of queue: " + q);
 
     // 9. Remove the head of the queue and assign it to a String variable
     // removedElement.
     // Display the value of "Removed element: " + removedElement
+    String removedElement = q.poll();
+    System.out.println("Removed element: " + removedElement);
 
     // 10. View the head of the queue using peek(). Output it's value.
+    String headElement = q.peek();
+    System.out.println("Head element: " + headElement);
 
     // 11. Using for(String element : q), output all of the values in the queue
+    for (String element : q) {
+      System.out.println(element);
+    }
 
   }
 
   public void stack() {
     // 12. Create a Stack<String> called bookStack
+    Stack<String> bookStack = new Stack<>();
 
     // 13. Push the following book titles onto bookStack: "Clean Code", "Design
     // Patterns", "Pragmatic Programmer"
+    bookStack.push("Clean Code");
+    bookStack.push("Design Patterns");
+    bookStack.push("Pragmatic Programmer");
 
     // 14. pop() 1 book off the stack. Display it's value
+    String firstBook = bookStack.pop();
+    System.out.println("First book is: " + firstBook);
 
     // 15. Use the peek() method to view the top book on the stack
+    String topBook = bookStack.peek();
+    System.out.println("The top book is now: " + topBook);
 
     // 16. push() "Web DB Technologies" onto the stack
+    bookStack.push("Web DB Technologies");
 
     // 17. Use the peek() method to view the top book on the stack
+    String newTopBook = bookStack.peek();
+    System.out.println("The top book is now: " + newTopBook);
 
     // 18. Search for "Design Patterns" in the stack. Display the results of the
     // search.
+    int searchResult = bookStack.search("Design Patterns");
+    System.out.println("Design Patterns is at position: " + searchResult);
 
     // 19. Call empty(). Output the results
+    System.out.println("Is the stack empty? " + bookStack.empty());
 
     // 20. Print the titles of all of the books on the stack
+    for (String bookTitle : bookStack) {
+      System.out.println(bookTitle);
+    }
 
   }
 
